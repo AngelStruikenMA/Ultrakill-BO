@@ -13,13 +13,14 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController controller;
     private Vector3 velocity;
     private bool isGrounded;
-    
+    private bool isCrouching = false;
 
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
 
-
+    public float standHeight = 2f;
+    public float crouchHeight = 1f;
 
     void Start()
     {
@@ -42,17 +43,37 @@ public class PlayerMovement : MonoBehaviour
         
         Vector3 move = transform.right * moveX + transform.forward * moveZ;
 
-        
+        float currentSpeed = isCrouching ? crouchSpeed : moveSpeed;
         controller.Move(move * moveSpeed * Time.deltaTime);
         
         isGrounded = true; 
-        if (Input.GetButton("Jump") && isGrounded) 
+        if (Input.GetButton("Jump") && isGrounded && !isCrouching) 
         { 
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-            Debug.Log("Has jumped!");
+            
         }
 
         velocity.y += gravity * Time.deltaTime; 
         controller.Move(velocity * Time.deltaTime);
+
+        HandleCrouch();
+    }
+
+    void HandleCrouch()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            isCrouching = true; 
+            controller.height = crouchHeight;
+            controller.center = new Vector3(0, crouchHeight / 2, 0);
+            
+        }
+        else if (Input.GetKeyUp(KeyCode.LeftControl)) 
+        {
+           isCrouching = false;
+            controller.height = standHeight;
+            controller.center = new Vector3(0, standHeight / 2, 0);
+            
+        }
     }
 }
