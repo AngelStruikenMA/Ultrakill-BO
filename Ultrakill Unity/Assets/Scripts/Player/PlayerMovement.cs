@@ -5,14 +5,14 @@ using UnityEngine.Rendering.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed = 5f;
-    public float slideSpeed = 10f;
-    public float slideDuration = 0.8f;
-    public float crouchHeight = 1f;
-    public float standHeight = 2f;
-    public float crouchSpeed = 2.5f;
-    public float gravity = -9.81f;
-    public float jumpHeight = 2f;
+  [SerializeField] private float moveSpeed = 5f;
+  [SerializeField] private float slideSpeed = 10f;
+  [SerializeField] private float slideDuration = 0.8f;
+  [SerializeField] private float crouchHeight = 1f;
+  [SerializeField] private float standHeight = 2f;
+  [SerializeField] private float crouchSpeed = 2.5f;
+  [SerializeField] private float gravity = -9.81f;
+  [SerializeField] private float jumpHeight = 2f;
 
     private CharacterController controller;
     private Vector3 velocity;
@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isCrouching = false;
 
     public Transform groundCheck;
-    public float groundDistance = 0.4f;
+  [SerializeField] private float groundDistance = 0.4f;
     public LayerMask groundMask;
 
 
