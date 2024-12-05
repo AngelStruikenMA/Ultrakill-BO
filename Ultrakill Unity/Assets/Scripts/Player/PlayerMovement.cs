@@ -11,20 +11,29 @@ public class PlayerMovement : MonoBehaviour
   [SerializeField] private float crouchHeight = 1f;
   [SerializeField] private float standHeight = 2f;
   [SerializeField] private float crouchSpeed = 2.5f;
-  [SerializeField] private float gravity = -9.81f;
+    [SerializeField] private float wallJumpForce = 5f;
+  [SerializeField] private float gravity = -20f;
+    [SerializeField] private float maxWallJumps = 3;
   [SerializeField] private float jumpHeight = 2f;
+    [SerializeField] private float gravityScale = 3f; 
+
 
     private CharacterController controller;
     private Vector3 velocity;
     private bool isGrounded;
+    private bool isTouchingWall;
     private bool isSliding = false;
     private bool isCrouching = false;
+    private bool canJump = true;
+    private int wallJumpCount = 0;
 
     public Transform groundCheck;
   [SerializeField] private float groundDistance = 0.4f;
     public LayerMask groundMask;
 
-
+    public Transform wallCheck;
+    [SerializeField] private float wallDistance = 0.5f;
+    public LayerMask wallMask; 
 
     void Start()
     {
@@ -37,18 +46,21 @@ public class PlayerMovement : MonoBehaviour
 
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-        if (isGrounded && velocity.y < 0)
+        isTouchingWall = Physics.CheckSphere(wallCheck.position, wallDistance, wallMask);
+
+        if (isGrounded)
         {
             velocity.y = -2f;
+            wallJumpCount = 0;
+            canJump = true; 
         }
 
         float moveX = Input.GetAxis("Horizontal");
         float moveZ = Input.GetAxis("Vertical");
 
         Vector3 move = transform.right * moveX + transform.forward * moveZ;
-
         float currentSpeed = isCrouching ? crouchSpeed : moveSpeed;
-        controller.Move(move * currentSpeed * Time.deltaTime);
+        
 
         isGrounded = true;
 
@@ -57,12 +69,22 @@ public class PlayerMovement : MonoBehaviour
             controller.Move(move * moveSpeed * Time.deltaTime);
         }
 
-        if (Input.GetButton("Jump") && isGrounded && !isCrouching)
+
+
+        if (Input.GetButton("Jump") && isGrounded && canJump && !isCrouching)
         {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-
+            if (isGrounded)
+            {
+                velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity * gravityScale);
+                canJump = false;
+            }
+            else if (isTouchingWall && wallJumpCount < maxWallJumps)
+            {
+                velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+                velocity += transform.forward * wallJumpForce;
+                wallJumpForce++;
+            }
         }
-
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
 
