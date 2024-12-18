@@ -479,6 +479,12 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 8
+--- !u!4 &474073261 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1979691528213089386, guid: cc3361232759d074bb97575b61f6d1d3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1067827133}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &601311919 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1218137696374503230, guid: ad72a2032892fd246ae1fab8d480e45e,
@@ -507,6 +513,74 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -8958370801612977965, guid: ad72a2032892fd246ae1fab8d480e45e, type: 3}
+--- !u!1001 &1067827133
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 49429548}
+    m_Modifications:
+    - target: {fileID: 1979691528212861002, guid: cc3361232759d074bb97575b61f6d1d3,
+        type: 3}
+      propertyPath: m_Name
+      value: GunHeavy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1979691528213089386, guid: cc3361232759d074bb97575b61f6d1d3,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.533
+      objectReference: {fileID: 0}
+    - target: {fileID: 1979691528213089386, guid: cc3361232759d074bb97575b61f6d1d3,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.507
+      objectReference: {fileID: 0}
+    - target: {fileID: 1979691528213089386, guid: cc3361232759d074bb97575b61f6d1d3,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.813
+      objectReference: {fileID: 0}
+    - target: {fileID: 1979691528213089386, guid: cc3361232759d074bb97575b61f6d1d3,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1979691528213089386, guid: cc3361232759d074bb97575b61f6d1d3,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1979691528213089386, guid: cc3361232759d074bb97575b61f6d1d3,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1979691528213089386, guid: cc3361232759d074bb97575b61f6d1d3,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1979691528213089386, guid: cc3361232759d074bb97575b61f6d1d3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1979691528213089386, guid: cc3361232759d074bb97575b61f6d1d3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1979691528213089386, guid: cc3361232759d074bb97575b61f6d1d3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cc3361232759d074bb97575b61f6d1d3, type: 3}
 --- !u!1 &1238450918 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5946469138397959680, guid: ad72a2032892fd246ae1fab8d480e45e,
@@ -745,7 +819,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e06afb90f4d65ba458ecaba8d5a55148, type: 2}
+  - {fileID: 2100000, guid: ae66624fb44370f4c9d59a4a806f04ee, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1041,6 +1115,10 @@ PrefabInstance:
     - {fileID: 3873734964761255897, guid: 5994f901f42f1a54eb41d06b38e8204a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 226481644759781666, guid: 5994f901f42f1a54eb41d06b38e8204a,
+        type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 474073261}
     - targetCorrespondingSourceObject: {fileID: 226481644759781666, guid: 5994f901f42f1a54eb41d06b38e8204a,
         type: 3}
       insertIndex: -1
