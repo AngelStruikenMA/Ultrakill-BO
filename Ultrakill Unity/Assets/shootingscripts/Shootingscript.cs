@@ -58,6 +58,6 @@ public class ShootingScript : MonoBehaviour
         }
 
         weapon.ammo--;
-        Debug.Log(weapon.weaponName + " Ammo: " + weapon.ammo);
+        //Debug.Log(weapon.weaponName + " Ammo: " + weapon.ammo);
     }
 }

@@ -34,7 +34,7 @@ public class Raycastshooting : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q))
         {
             currentWeaponIndex = (currentWeaponIndex + 1) % weapons.Length;
-            Debug.Log("Switched to: " + weapons[currentWeaponIndex].weaponName);
+            //Debug.Log("Switched to: " + weapons[currentWeaponIndex].weaponName);
         }
     }
 
