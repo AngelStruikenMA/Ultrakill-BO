@@ -31,6 +31,7 @@ public class PlayerDash : MonoBehaviour
     public Slider staminaBar; 
     void Start()
     {
+        //De speler begint met max 3 dashes als je de game opstart
         controller = GetComponent<CharacterController>();
         currentDashes = maxDashes;
 
@@ -56,6 +57,8 @@ public class PlayerDash : MonoBehaviour
         RechargeStamina();
     }
 
+    //Zorgt ervoor dat de player kan bewegen in de goeie directie. 
+
     void HandleMovement()
     {
         float moveX = Input.GetAxis("Horizontal");
@@ -65,6 +68,8 @@ public class PlayerDash : MonoBehaviour
         controller.Move(moveDirection * moveSpeed * Time.deltaTime);
     }
 
+    //Zorgt ervoor dat de player max 3 keer kan dashen met Left shift.
+
     void HandleDashInput()
     {
         if (Input.GetKeyDown(KeyCode.LeftShift) && currentDashes > 0)
@@ -73,6 +78,8 @@ public class PlayerDash : MonoBehaviour
         }
     }
 
+
+    //Zorgt ervoor dat de dash begint en neemt ook stamina af als je dashed.
     void StartDash()
     {
         isDashing = true; 
@@ -87,6 +94,8 @@ public class PlayerDash : MonoBehaviour
         }
     }
 
+    //Zorgt ervoor dat de player dashed in de goeie richting met de juiste velocity.
+
     void DashMove()
     {
         Vector3 dashVelocity = moveDirection * dashSpeed; 
@@ -100,6 +109,8 @@ public class PlayerDash : MonoBehaviour
             cameraTransform.localPosition = new Vector3(0, 1.8f, 0);
         }
     }
+
+    //Laat de player stamina rechargen na een paar secondes.
 
     void RechargeStamina()
     {
