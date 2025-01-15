@@ -5,75 +5,46 @@ using UnityEngine.Rendering.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed = 5f;
-    public float crouchSpeed = 2.5f;
-    public float gravity = -9.81f;
-    public float jumpHeight = 2f;
+    [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private float gravity = -20f;
 
     private CharacterController controller;
     private Vector3 velocity;
-    private bool isGrounded;
-    private bool isCrouching = false;
+    [SerializeField]private bool isGrounded;
 
     public Transform groundCheck;
-    public float groundDistance = 0.4f;
+    [SerializeField] private float groundDistance = 0.4f;
     public LayerMask groundMask;
 
-    public float standHeight = 2f;
-    public float crouchHeight = 1f;
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
     }
 
-    void Update()
+    public void ProcessMovement()
     {
-        
-
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-        if (isGrounded && velocity.y < 0) 
+        if (isGrounded && velocity.y < 0)
         {
-            velocity.y = -2f; 
+            velocity.y = -2f;
         }
 
         float moveX = Input.GetAxis("Horizontal");
-        float moveZ = Input.GetAxis("Vertical"); 
-        
+        float moveZ = Input.GetAxis("Vertical");
+
         Vector3 move = transform.right * moveX + transform.forward * moveZ;
-
-        float currentSpeed = isCrouching ? crouchSpeed : moveSpeed;
         controller.Move(move * moveSpeed * Time.deltaTime);
-        
-        isGrounded = true; 
-        if (Input.GetButton("Jump") && isGrounded && !isCrouching) 
-        { 
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-            
-        }
 
-        velocity.y += gravity * Time.deltaTime; 
+        velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
-
-        HandleCrouch();
+       //Debug.Log($"IsGrounded: {isGrounded}");
     }
 
-    void HandleCrouch()
+    public bool IsGrounded()
     {
-        if (Input.GetKeyDown(KeyCode.LeftControl))
-        {
-            isCrouching = true; 
-            controller.height = crouchHeight;
-            controller.center = new Vector3(0, crouchHeight / 2, 0);
-            
-        }
-        else if (Input.GetKeyUp(KeyCode.LeftControl)) 
-        {
-           isCrouching = false;
-            controller.height = standHeight;
-            controller.center = new Vector3(0, standHeight / 2, 0);
-            
-        }
+        return isGrounded;
+        
     }
 }
