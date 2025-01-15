@@ -20,8 +20,9 @@ public class Particleshooting : MonoBehaviour
     public Transform firePoint;
     public AudioSource audioSource;
 
-    [Header("Hit Effect")]
-    public GameObject hitEffect; // Assign your particle effect prefab here
+    [Header("Hit Effects")]
+    public GameObject hitEffect;       // Default particle effect for non-enemies
+    public GameObject enemyHitEffect;  // Particle effect for enemies
 
     private int currentWeaponIndex = 0;
     private float nextFireTime = 0f;
@@ -79,16 +80,25 @@ public class Particleshooting : MonoBehaviour
             // Hit something
             line.SetPosition(1, hit.point);
 
-            // === Spawn a particle effect at the hit point ===
-            if (hitEffect != null)
+            // If the hit object is tagged "Enemy," spawn the enemy effect; otherwise, spawn the default effect
+            if (hit.collider.CompareTag("Enemy"))
             {
-                // Instantiate the effect so it faces outward from the surface
-                GameObject effect = Instantiate(hitEffect, hit.point, Quaternion.LookRotation(hit.normal));
-                // Destroy the effect after a short time to prevent clutter
-                Destroy(effect, 2f);
+                if (enemyHitEffect != null)
+                {
+                    GameObject effect = Instantiate(enemyHitEffect, hit.point, Quaternion.LookRotation(hit.normal));
+                    Destroy(effect, 2f);
+                }
+            }
+            else
+            {
+                if (hitEffect != null)
+                {
+                    GameObject effect = Instantiate(hitEffect, hit.point, Quaternion.LookRotation(hit.normal));
+                    Destroy(effect, 2f);
+                }
             }
 
-            // === Optionally apply damage if you have an EnemyHealth script ===
+            // (Optional) Apply damage if you have an EnemyHealth script:
             /*
             EnemyHealth enemy = hit.collider.GetComponent<EnemyHealth>();
             if (enemy != null)
