@@ -26,7 +26,7 @@ We willen graag dat de speler zich gedraagd alsof hij/zij gewoon zelf een game h
 
 Hoe krijgen we de tester op zijn gemak?
 
-We geven de tester genoeg ruimte om de game te testen en laten de tester op z’n gemak voelen door waar de tester wilt zitten.
+We geven de tester genoeg ruimte om de game te testen en laten de tester op zâ€™n gemak voelen door waar de tester wilt zitten.
 
 Hoe moeten de afnemers van de test zich gedragen?
 
@@ -34,10 +34,10 @@ Hoe moeten de afnemers van de test zich gedragen?
 
 Welke vragen willen de testers laten beantwoorden?
 
-Vond je de controls makkelijk te begrijpen? Kon je de enemies vinden? Vond je de gameplay fijn en leuk?
+heb je ooit ultrakill gespeeld? Vond je de controls makkelijk te begrijpen?  Vond je de gameplay fijn en leuk? hoe voelde de movement? zou je het spel zelf spelen 
 
 Wat hebben we nodig om goed te kunnen testen?
 
 Voor onze test hebben we 1 laptop nodig met de game erop en een stille kamer zodat de speler zich volledig kan focussen op het spel.
 Wat hebben we nodig om goede footage te krijgen die later ook goed te analyseren is?
-We hebben 1 (als het mogelijk is 2) camera(s) nodig met een volledige zicht van de speler z’n gezicht en handen. De footage moet duidelijk genoeg zijn om de speler z’n emoties te kunnen zien. 
+We hebben 1 (als het mogelijk is 2) camera(s) nodig met een volledige zicht van de speler zâ€™n gezicht en handen. De footage moet duidelijk genoeg zijn om de speler zâ€™n emoties te kunnen zien. 

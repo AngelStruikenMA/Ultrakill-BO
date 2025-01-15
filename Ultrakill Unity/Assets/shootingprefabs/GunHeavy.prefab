@@ -1,6 +1,8 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+
 --- !u!1 &3393704439916232830
+
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,7 +10,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+
   - component: {fileID: 6524932281218404185}
+
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -16,22 +20,29 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+
 --- !u!4 &6524932281218404185
+
+
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+
   m_GameObject: {fileID: 3393704439916232830}
+
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.0036751362, y: 0.1356, z: 0.6796945}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
+
   m_Father: {fileID: 1979691528213089386}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1979691528212961002
+
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -101,11 +112,14 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 400000, guid: 584761fab006d6d42b4d0d8c56a51241,
         type: 3}
       insertIndex: -1
+
       addedObject: {fileID: 6524932281218404185}
+
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 584761fab006d6d42b4d0d8c56a51241,
         type: 3}
       insertIndex: 1
+
       addedObject: {fileID: 1290392967324386616}
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 584761fab006d6d42b4d0d8c56a51241,
         type: 3}
@@ -119,12 +133,15 @@ GameObject:
   m_PrefabInstance: {fileID: 1979691528212961002}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1290392967324386616
+
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+
   m_GameObject: {fileID: 1979691528212861002}
+
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 32e800a5416faa142a97eb47f31e50a1, type: 3}
@@ -138,15 +155,19 @@ MonoBehaviour:
     projectileSpeed: 40
     ammo: 999999999
     shootSound: {fileID: 0}
+
   firePoint: {fileID: 6524932281218404185}
   audioSource: {fileID: 0}
 --- !u!114 &3875594091046356633
+
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+
   m_GameObject: {fileID: 1979691528212861002}
+
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f68ce80481b717d43bf014da8f6548e8, type: 3}
@@ -161,6 +182,7 @@ MonoBehaviour:
     lineRendererPrefab: {fileID: 532837720272315724, guid: 736319d712c5ce74abcfd748c418e001,
       type: 3}
     shootSound: {fileID: 0}
+
   firePoint: {fileID: 6524932281218404185}
   audioSource: {fileID: 0}
 --- !u!4 &1979691528213089386 stripped
@@ -169,3 +191,4 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1979691528212961002}
   m_PrefabAsset: {fileID: 0}
+
