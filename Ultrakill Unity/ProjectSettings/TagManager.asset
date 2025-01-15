@@ -5,8 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
-  - player
-  - ground
+
+
   layers:
   - Default
   - TransparentFX
@@ -14,8 +14,10 @@ TagManager:
   - Ground
   - Water
   - UI
-  - player
-  - 
+
+  - DamagePunch
+  - Wall
+
   - 
   - 
   - 
