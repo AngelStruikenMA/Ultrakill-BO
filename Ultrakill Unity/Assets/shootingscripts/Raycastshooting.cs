@@ -2,9 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum WeaponType
+{
+    None,
+    Revolver
+}; 
+
 public class Raycastshooting : MonoBehaviour
 {
-  [System.Serializable]
+    [System.Serializable]
     public class Weapon
     {
         public string weaponName;
@@ -14,6 +20,12 @@ public class Raycastshooting : MonoBehaviour
         public float damage;
         public LineRenderer lineRendererPrefab;
         public AudioClip shootSound;
+        private WeaponType wType =  WeaponType.None;
+        public WeaponType WType{
+            get { return wType; }
+        }
+
+
     }
 
     public Weapon[] weapons;
@@ -22,6 +34,8 @@ public class Raycastshooting : MonoBehaviour
 
     private int currentWeaponIndex = 0;
     private float nextFireTime = 0f;
+
+    
 
     void Update()
     {
@@ -34,7 +48,7 @@ public class Raycastshooting : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q))
         {
             currentWeaponIndex = (currentWeaponIndex + 1) % weapons.Length;
-            Debug.Log("Switched to: " + weapons[currentWeaponIndex].weaponName);
+            //Debug.Log("Switched to: " + weapons[currentWeaponIndex].weaponName);
         }
     }
 
@@ -51,6 +65,15 @@ public class Raycastshooting : MonoBehaviour
 
     void Shoot(Weapon weapon)
     {
+       
+        if(weapon.WType == WeaponType.Revolver)
+        {
+            Debug.Log("Piew");
+
+        }
+        if (weapon.WType == WeaponType.None) {
+            Debug.Log("No Weapon");
+        }
         StartCoroutine(FireWeapon(weapon));
 
         if (weapon.shootSound != null && audioSource != null)

@@ -236,7 +236,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 492a0f9ec5ea1d04ab9d9623c42dddbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health5: -2040
+  EnemiesKilled: 0
+  health5: 100
 --- !u!33 &498037276142758258
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -307,16 +308,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
-  crouchSpeed: 2.5
   gravity: -9.807
-  jumpHeight: 1.5
+  isGrounded: 0
   groundCheck: {fileID: 8062748288961812800}
   groundDistance: 0.5
   groundMask:
     serializedVersion: 2
-    m_Bits: 8
-  standHeight: 1
-  crouchHeight: 0.5
+    m_Bits: 0
 --- !u!114 &7545498876317250862
 MonoBehaviour:
   m_ObjectHideFlags: 0

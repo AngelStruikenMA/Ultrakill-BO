@@ -80,32 +80,28 @@ public class Particleshooting : MonoBehaviour
             // Hit something
             line.SetPosition(1, hit.point);
 
-            // If the hit object is tagged "Enemy," spawn the enemy effect; otherwise, spawn the default effect
+            // Check if the object is tagged "Enemy"
             if (hit.collider.CompareTag("Enemy"))
             {
+                // Spawn enemy-specific hit effect if assigned
                 if (enemyHitEffect != null)
                 {
                     GameObject effect = Instantiate(enemyHitEffect, hit.point, Quaternion.LookRotation(hit.normal));
                     Destroy(effect, 2f);
                 }
+
+                // Destroy the enemy GameObject immediately
+                Destroy(hit.collider.gameObject);
             }
             else
             {
+                // Not an enemy, spawn the default hit effect
                 if (hitEffect != null)
                 {
                     GameObject effect = Instantiate(hitEffect, hit.point, Quaternion.LookRotation(hit.normal));
                     Destroy(effect, 2f);
                 }
             }
-
-            // (Optional) Apply damage if you have an EnemyHealth script:
-            /*
-            EnemyHealth enemy = hit.collider.GetComponent<EnemyHealth>();
-            if (enemy != null)
-            {
-                enemy.TakeDamage(weapon.damage);
-            }
-            */
         }
         else
         {
