@@ -4,15 +4,28 @@ using UnityEngine;
 
 public class AiHealth : MonoBehaviour
 {
+  private Animator ani;
   
   public int health5;
-  public void TakeDamageAi(int damage)
+  private void Start()
   {
+    ani = GetComponent<Animator>();
+  }
+  public void TakeDamageAi(int damage)
+  
+  {
+    if (ani != null)
+            {
+               
+            
     health5 -= damage;
     if (health5 < 0)
     {
-        Destroy(gameObject);
+      
+       ani.SetTrigger("Die");
+        Destroy(gameObject, 10);
         
     }
+  }
   }
 }

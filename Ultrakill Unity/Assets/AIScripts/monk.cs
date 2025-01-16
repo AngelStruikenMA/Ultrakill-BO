@@ -79,7 +79,7 @@ public class monk : MonoBehaviour
             
 
             
-            Health1 playerHealth = player.GetComponent<Health1>();
+            PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
             if (playerHealth != null)
             {
                 playerHealth.TakeDamage(attackDamage);
