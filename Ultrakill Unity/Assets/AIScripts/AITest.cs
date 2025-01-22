@@ -15,6 +15,7 @@ public class AITest : MonoBehaviour
         [SerializeField] private int Enemy = 0;
         [SerializeField] private int SecondEnemy = 0;
         [SerializeField] public int EnemiesKilled = 0;
+        
     public GameObject AIPrefab;
     // Start is called before the first frame update
 
