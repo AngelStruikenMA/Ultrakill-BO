@@ -11,7 +11,7 @@ public class monk : MonoBehaviour
 
     private Transform player;                  
     private NavMeshAgent agent;                 
-        private float attackTimer = 0f;             
+       [SerializeField] private float attackTimer = 0f;             
 
    
     private Animator animator;                  
@@ -47,9 +47,11 @@ public class monk : MonoBehaviour
 
     
             if (distanceToPlayer <= attackRange)
-            {
+            {   
+
                 agent.isStopped = true;
                 TryAttackPlayer();
+                animator.SetTrigger("Attack");
             }
             else
             {
@@ -69,7 +71,7 @@ public class monk : MonoBehaviour
             
         if (attackTimer >= attackCooldown)
         {
-            animator.SetTrigger("Attack");
+            
             attackTimer = 0f;
              
 
@@ -83,6 +85,7 @@ public class monk : MonoBehaviour
             if (playerHealth != null)
             {
                 playerHealth.TakeDamage(attackDamage);
+               // animator.SetTrigger("Attack");
             }
         }
             }
