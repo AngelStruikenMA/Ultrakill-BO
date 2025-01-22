@@ -24,9 +24,13 @@ public class Particleshooting : MonoBehaviour
     public GameObject hitEffect;       // Default particle effect for non-enemies
     public GameObject enemyHitEffect;  // Particle effect for enemies
 
+    [Header("Gun Animation")]
+    public Animator gunAnimator;       // Reference to your gun's Animator
+
     private int currentWeaponIndex = 0;
     private float nextFireTime = 0f;
 
+    
     void Update()
     {
         HandleWeaponSwitch();
@@ -55,18 +59,28 @@ public class Particleshooting : MonoBehaviour
 
     void Shoot(Weapon weapon)
     {
+        // ====== Trigger the Gun's Shoot Animation ======
+        if (gunAnimator != null)
+        {
+            // Set the "Shoot" trigger in your Animator Controller
+            gunAnimator.SetTrigger("Shoot");
+        }
+
+        // ====== Continue with Shooting Logic ======
         StartCoroutine(FireWeapon(weapon));
 
+        // Play shoot sound (if assigned)
         if (weapon.shootSound != null && audioSource != null)
         {
             audioSource.PlayOneShot(weapon.shootSound);
         }
 
+        // Reduce Ammo
         weapon.ammo--;
         Debug.Log(weapon.weaponName + " Ammo: " + weapon.ammo);
     }
 
-    IEnumerator FireWeapon(Weapon weapon)
+    IEnumerator FireWeapon(Weapon weapon)   
     {
         // Create (instantiate) a LineRenderer instance
         LineRenderer line = Instantiate(weapon.lineRendererPrefab);
