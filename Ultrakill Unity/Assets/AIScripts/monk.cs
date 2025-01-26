@@ -11,10 +11,10 @@ public class monk : MonoBehaviour
 
     private Transform player;                  
     private NavMeshAgent agent;                 
-        private float attackTimer = 0f;             
+       [SerializeField] private float attackTimer = 0f;             
 
    
-    public Animator animator;                  
+    private Animator animator;                  
 
     void Start()
     {
@@ -26,7 +26,7 @@ public class monk : MonoBehaviour
             Debug.LogError("Player not found. Ensure the player is tagged 'Player'.");
         }
 
-    
+        animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
     }
 
@@ -47,9 +47,11 @@ public class monk : MonoBehaviour
 
     
             if (distanceToPlayer <= attackRange)
-            {
+            {   
+
                 agent.isStopped = true;
                 TryAttackPlayer();
+                animator.SetTrigger("Attack");
             }
             else
             {
@@ -63,24 +65,32 @@ public class monk : MonoBehaviour
 
     private void TryAttackPlayer()
     {
+         if (animator != null)
+            {
+               
+            
         if (attackTimer >= attackCooldown)
         {
+            
             attackTimer = 0f;
+             
 
         
-            if (animator != null)
-            {
-                animator.SetTrigger("Attack");
-            }
+            
+                
+            
 
             
-            Health1 playerHealth = player.GetComponent<Health1>();
+            PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
             if (playerHealth != null)
             {
                 playerHealth.TakeDamage(attackDamage);
+               // animator.SetTrigger("Attack");
             }
         }
+            }
     }
+        
 
     private void OnDrawGizmosSelected()
     {

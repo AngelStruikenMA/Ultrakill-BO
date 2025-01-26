@@ -86,18 +86,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
-  slideSpeed: 10
-  slideDuration: 0.8
-  crouchHeight: 0.1
-  standHeight: 1
-  crouchSpeed: 2.5
   gravity: -9.807
-  jumpHeight: 1
+  isGrounded: 0
   groundCheck: {fileID: 4555049959074404625}
   groundDistance: 0.5
   groundMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 0
 --- !u!114 &8734400584595547479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,6 +111,9 @@ MonoBehaviour:
   dashCooldown: 1
   cameraTransform: {fileID: 6696198983190354841}
   dashShakeIntensity: 0.1
+  maxDashes: 3
+  staminaRechargeTime: 3
+  staminaBar: {fileID: 0}
 --- !u!114 &4448283173637657026
 MonoBehaviour:
   m_ObjectHideFlags: 0
