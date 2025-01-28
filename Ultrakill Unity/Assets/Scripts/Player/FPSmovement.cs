@@ -60,7 +60,9 @@ public class FPSmovement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);  
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+
+            Debug.Log("jump");
             
         }
 
