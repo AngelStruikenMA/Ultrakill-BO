@@ -2139,9 +2139,14 @@ MonoBehaviour:
   - {fileID: 675044534}
   - {fileID: 460463878}
   - {fileID: 1666958198}
-  SecondSpawn: []
+  Ai2:
+  - {fileID: 675044534}
+  - {fileID: 460463878}
+  - {fileID: 1666958198}
   maxEnemy: 3
   Enemy: 0
+  maxEnemy2: 8
+  Enemy2: 0
   SecondEnemy: 0
   EnemiesKilled: 0
   AIPrefab: {fileID: 4500522894469153100, guid: 05a346df5da1e06468ac5ce9c652d68b,
@@ -2400,6 +2405,7 @@ MonoBehaviour:
     lineRendererPrefab: {fileID: 532837720272315724, guid: 736319d712c5ce74abcfd748c418e001,
       type: 3}
     shootSound: {fileID: 0}
+    aITest: {fileID: 0}
   firePoint: {fileID: 344413635}
   audioSource: {fileID: 0}
   hitEffect: {fileID: 1353239795}
@@ -2620,6 +2626,7 @@ MonoBehaviour:
     lineRendererPrefab: {fileID: 532837720272315724, guid: 736319d712c5ce74abcfd748c418e001,
       type: 3}
     shootSound: {fileID: 0}
+    aITest: {fileID: 0}
   firePoint: {fileID: 344413635}
   audioSource: {fileID: 0}
   hitEffect: {fileID: 1353239795}

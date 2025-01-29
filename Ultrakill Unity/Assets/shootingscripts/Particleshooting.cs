@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 
 public class Particleshooting : MonoBehaviour 
@@ -14,6 +15,8 @@ public class Particleshooting : MonoBehaviour
         public float damage;
         public LineRenderer lineRendererPrefab;
         public AudioClip shootSound;
+        public AITest aITest;
+        
     }
 
     public Weapon[] weapons;
@@ -29,7 +32,7 @@ public class Particleshooting : MonoBehaviour
 
     private int currentWeaponIndex = 0;
     private float nextFireTime = 0f;
-
+   
     
     void Update()
     {
@@ -106,6 +109,8 @@ public class Particleshooting : MonoBehaviour
 
                 // Destroy the enemy GameObject immediately
                 Destroy(hit.collider.gameObject);
+            
+                
             }
             else
             {

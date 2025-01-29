@@ -21,10 +21,7 @@ public class monk : MonoBehaviour
         
         player = GameObject.FindGameObjectWithTag("Player")?.transform;
 
-        if (player == null)
-        {
-            Debug.LogError("Player not found. Ensure the player is tagged 'Player'.");
-        }
+        
 
         animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
